@@ -14,6 +14,8 @@ export async function updateSettings(formData) {
       note: formData.get("note")?.toString() || "",
       about_heading: formData.get("about_heading")?.toString() || "",
       about_text: formData.get("about_text")?.toString() || "",
+      prices_note: formData.get("prices_note")?.toString() || "",
+      size_chart_text: formData.get("size_chart_text")?.toString() || "",
     })
     .eq("id", 1);
 
@@ -22,5 +24,6 @@ export async function updateSettings(formData) {
   revalidatePath("/");
   revalidatePath("/contact");
   revalidatePath("/printing");
+  revalidatePath("/cart");
   return { ok: true };
 }

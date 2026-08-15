@@ -39,6 +39,12 @@ export default function SettingsForm({ settings, updateAction }) {
       <Field label="About Us text">
         <textarea name="about_text" defaultValue={settings?.about_text} rows={4} className="input resize-none" />
       </Field>
+      <Field label="Pricing note (shown next to every price, e.g. VAT/printing terms)">
+        <textarea name="prices_note" defaultValue={settings?.prices_note} rows={2} className="input resize-none" />
+      </Field>
+      <Field label="Size guide text (shown on every product page)">
+        <textarea name="size_chart_text" defaultValue={settings?.size_chart_text} rows={5} className="input resize-none" placeholder={"e.g.\nS: chest 48cm, length 68cm\nM: chest 52cm, length 70cm\nL: chest 56cm, length 72cm"} />
+      </Field>
 
       {error && <p className="text-sm text-[#B23B3B]">{error}</p>}
       {saved && <p className="text-sm text-olive">Saved.</p>}

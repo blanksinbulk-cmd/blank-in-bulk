@@ -1,4 +1,5 @@
 import "./globals.css";
+import { CartProvider } from "@/lib/cart-context";
 
 export const metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"),
@@ -30,7 +31,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className="bg-white text-ink antialiased">{children}</body>
+      <body className="bg-white text-ink antialiased">
+        <CartProvider>{children}</CartProvider>
+      </body>
     </html>
   );
 }

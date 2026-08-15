@@ -24,6 +24,7 @@ export async function createProduct(formData) {
     colours: splitList(formData.get("colours")),
     stock_status: formData.get("stock_status")?.toString() || "in_stock",
     moq: formData.get("moq")?.toString() || "1 unit",
+    bulk_note: formData.get("bulk_note")?.toString() || null,
   };
 
   const { data, error } = await supabase.from("products").insert(payload).select().single();
@@ -48,6 +49,7 @@ export async function updateProduct(productId, formData) {
     colours: splitList(formData.get("colours")),
     stock_status: formData.get("stock_status")?.toString() || "in_stock",
     moq: formData.get("moq")?.toString() || "1 unit",
+    bulk_note: formData.get("bulk_note")?.toString() || null,
     is_published: formData.get("is_published") === "on",
     updated_at: new Date().toISOString(),
   };
